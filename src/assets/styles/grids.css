@@ -1,0 +1,124 @@
+@media screen and (max-width: 55em) {
+    .container-app {
+        align-items: unset!important;
+        padding: 0;
+    }
+    .container-app > .grid-container-main {
+        grid-template-columns: 1fr;
+        width: 100%;
+        height: auto;
+        overflow: unset;
+    }
+
+    .grid-container-main > .container-create-account {
+        justify-content: start;
+        padding-top: 2em;
+    }
+    .grid-container-main > .grid-container-content {
+        column-gap: 0;
+        row-gap: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .grid-container-content > .content-items {
+        width: calc(100% - 1em);
+        margin: 0.5em;
+    }
+
+    .grid-container-content > .content-items:nth-child(odd) {
+        justify-self: unset;
+    }
+    .grid-container-content > .content-items:nth-child(1) {
+        align-self: unset;
+    }
+    .grid-container-content > .content-items:nth-child(2) {
+        align-self: unset;
+    }
+}
+
+.container-app {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    max-width: 100vw;
+}
+
+.grid-container-main {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    position: relative;
+    width: 80%;
+    height: 75%;
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.container-create-account {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: black;
+    padding: 0 2em;
+    justify-content: center;
+}
+
+.container-create-account > h1 {
+    margin-bottom: 0;
+}
+.container-create-account > p {
+    margin-bottom: 2em;
+}
+
+button.login-signup {
+    border: 2px solid black;
+    padding: 1em;
+    width: 10em;
+    align-self: center;
+    background-color: white;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.grid-container-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 5em auto;
+    height: 100%;
+    max-width: 100%;
+    background-color: white;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+.content-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12em;
+    height: 5em;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.content-items > i {
+    font-size: 2em;
+    margin-right: 0.5em;
+}
+
+.content-items > p {
+    margin: 0;
+}
+
+.content-items:nth-child(odd) {
+    justify-self: end;
+}
+.content-items:nth-child(1) {
+    align-self: end;
+}
+.content-items:nth-child(2) {
+    align-self: end;
+}
