@@ -1,0 +1,22 @@
+#firebaseui_container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 100vh
+}
+
+.signin-logo-wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 3em;
+    z-index: 100;
+}
+
+.signin-logo {
+    width: 200px;
+    height: auto;
+}

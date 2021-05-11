@@ -73,11 +73,15 @@
     margin-bottom: 2em;
 }
 
+.container-create-account > a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
 button.login-signup {
     border: 0px solid black;
     padding: 1em;
     width: 10em;
-    align-self: center;
     background-color: white;
     border-radius: 6px;
     font-size: 1em;
