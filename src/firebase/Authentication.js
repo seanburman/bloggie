@@ -36,7 +36,7 @@ export default function SignIn() {
         return (
                 <div className="signin-screen bg-gradient">
                 <div className="signin-logo-wrapper">
-                  <a href="/home">
+                  <a href="/">
                   <img src="/img/logo.png" className="logo" alt="Bloggie logo"/>
                   </a>
                   
