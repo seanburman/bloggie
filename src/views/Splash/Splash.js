@@ -2,6 +2,7 @@ import './Splash.css'
 import '../../assets/styles/global-styles.css'
 
 export default function Splash() {
+
     return (
         <div className="container-app">
       <div className="grid-container-main shadow">
@@ -9,8 +10,13 @@ export default function Splash() {
         <img src="/img/logo.png" alt="Bloggie Logo" className="logo"/>
         <h1>Create Account</h1>
         <p>Start an account for free and have your own embeddable blog in minutes!</p>
-        <a href="/SignIn">
-        <button className="login-signup shadow hover-bounce">Login or Signup</button></a>
+
+        <a href="/signIn">
+        <button className="login-signup shadow hover-bounce">
+        Login or Signup
+        </button>
+        </a>
+
       </div>
       <div className="grid-container-content bg-gradient">
 
