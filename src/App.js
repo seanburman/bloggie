@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './assets/styles/grids.css'
 import './assets/styles/global-styles.css'
+import './assets/styles/animations.css'
 import './App.css';
 import Splash from './views/Splash/Splash';
 import SignIn from './firebase/Authentication';

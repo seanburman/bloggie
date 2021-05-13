@@ -34,14 +34,16 @@ export default function SignIn() {
     if (!isSignedIn) {
         return (
                 <div className="signin-screen bg-gradient">
-                <div className="signin-logo-wrapper">
+                <div className="signin-logo-wrapper slide-in">
                   <a href="/">
-                  <img src="/img/logo.png" className="logo" alt="Bloggie logo"/>
+                  <img src="/img/logo-white.png" className="logo" alt="Bloggie logo"/>
                   </a>
                   
                 </div>
                 
-                    <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+                    <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} 
+                    className="slide-in"
+                    />
                 </div> 
             )
     }

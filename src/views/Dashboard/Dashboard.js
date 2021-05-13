@@ -10,8 +10,7 @@ export default function Dashboard() {
 
     if(user) {
     return (
-        
-        <div className="grid-container-dashboard">
+        <div className="grid-container-dashboard slide-in">
         <div className="grid-container-nav dashboard-shadow" tabIndex={-1}>
          <img src="/img/logo-white.png" alt="Bloggie" className="dashboard-logo"/>
          <div className="dashboard-nav-button-wrapper">

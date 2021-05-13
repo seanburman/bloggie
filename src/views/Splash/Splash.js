@@ -4,7 +4,7 @@ import '../../assets/styles/global-styles.css'
 export default function Splash() {
 
     return (
-        <div className="container-app">
+      <div className="container-app slide-in">
       <div className="grid-container-main shadow">
       <div className="container-create-account">
         <img src="/img/logo.png" alt="Bloggie Logo" className="logo"/>
