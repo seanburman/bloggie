@@ -3,15 +3,25 @@ import 'firebase/storage'
 import 'firebase/analytics'
 import 'firebase/auth'
 import 'firebase/firestore'
+import env from 'react-dotenv'
+
+const APIKEY = env.APIKEY
+const AUTHDOMAIN = env.AUTHDOMAIN
+const PROJECTID = env.PROJECTID
+const STORAGEBUCKET = env.STORAGEBUCKET
+const MESSAGINGSENDERID = env.MESSAGINGSENDERID
+const APPID = env.APPID
+const MEASUREMENTID = env.MEASUREMENTID
+
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBEKz4zyGGiqtgygYpjsC19WhfKkZODNF0",
-    authDomain: "fir-react-upload-359a8.firebaseapp.com",
-    projectId: "fir-react-upload-359a8",
-    storageBucket: "fir-react-upload-359a8.appspot.com",
-    messagingSenderId: "771567757253",
-    appId: "1:771567757253:web:0e9a5974049f9271798dac",
-    measurementId: "G-GT0M9F5RV1"
+    apiKey: APIKEY,
+    authDomain: AUTHDOMAIN,
+    projectId: PROJECTID,
+    storageBucket: STORAGEBUCKET,
+    messagingSenderId: MESSAGINGSENDERID,
+    appId: APPID,
+    measurementId: MEASUREMENTID
   };
 
 firebase.initializeApp(firebaseConfig)

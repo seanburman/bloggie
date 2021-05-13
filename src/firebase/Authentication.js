@@ -25,7 +25,10 @@ export default function SignIn() {
     useEffect(() => {
         const unregisterAuthObserver = firebase.auth().onAuthStateChanged(user => {
           setIsSignedIn(!!user);
-          storeUser(user)
+          if(firebase.auth().currentUser){
+            storeUser(user) 
+          }
+          
         });
         return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
       }, []);
