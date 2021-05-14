@@ -4,7 +4,7 @@ import firebase from '../../firebase/index'
 import SignIn from '../../firebase/Authentication'
 import { logOut } from '../../redux/user/userHelpers'
 import { useState } from 'react'
-import { getPosts } from '../../redux/blog/blogHelpers'
+import Blog from '../Blog/Blogs'
 
 export default function Dashboard() {
     const [openNav, setOpenNav] = useState(false)
@@ -67,7 +67,9 @@ export default function Dashboard() {
             }
             </button>
             </div>
-           <div><button onClick={() => getPosts()}>Get Posts</button></div>
+           <div className="grid-container-dashboard-blog-wrapper">
+           <Blog />
+           </div>
 
         </div>
         </div>

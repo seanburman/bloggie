@@ -1,0 +1,35 @@
+.blog-header > p {
+    font-size: 3em;
+    margin-left: 0.25em;
+}
+
+.blog-post-preview {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 0.5em 1.5em 0.5em;
+    transition: 250ms;
+}
+
+.blog-post-preview:hover {
+    transform: translateY(-5px);
+    opacity: 0.8;
+    transition: 250ms;
+}
+
+.blog-post-preview-header-image > img {
+    border-radius: 12px;
+    width: 100%;
+}
+
+.blog-post-preview-date > * {
+    margin: 0.25em 0;
+}
+
+.blog-post-preview-title > * {
+    margin: 0.5em 0;
+}
+
+.blog-post-preview-content > * {
+    margin: 0;
+}

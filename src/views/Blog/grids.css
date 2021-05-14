@@ -1,0 +1,15 @@
+@media screen and (max-width: 60em) {
+
+}
+
+.grid-container-blog {
+    display: grid;
+    grid-template-columns: 1fr 2em;
+    grid-template-rows: auto 1fr;
+}
+.grid-container-blog-posts {
+    display: grid;
+    grid-row: 2/3;
+    grid-column: 1/2;
+    grid-template-columns: auto auto auto;
+}
