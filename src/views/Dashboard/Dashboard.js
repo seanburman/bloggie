@@ -3,17 +3,27 @@ import './Dashboard.css'
 import firebase from '../../firebase/index'
 import SignIn from '../../firebase/Authentication'
 import { logOut } from '../../redux/user/userHelpers'
+import { useState } from 'react'
+import { getPosts } from '../../redux/blog/blogHelpers'
 
 export default function Dashboard() {
+    const [openNav, setOpenNav] = useState(false)
+    const navState = openNav ? "open" : "closed"
 
     const user = firebase.auth().currentUser
 
     if(user) {
     return (
         <div className="grid-container-dashboard slide-in">
-        <div className="grid-container-nav dashboard-shadow" tabIndex={-1}>
-         <img src="/img/logo-white.png" alt="Bloggie" className="dashboard-logo"/>
-         <div className="dashboard-nav-button-wrapper">
+        <div 
+            className={
+                "grid-container-nav dashboard-shadow nav-drawer-open nav-drawer-" + navState
+            } 
+            tabIndex={-1}>
+         <img src="/img/logo-white.png" alt="Bloggie" className="dashboard-logo"
+         onClick={() => setOpenNav(!openNav)}
+         />
+         <div className={"dashboard-nav-button-wrapper"}>
             <button className="dashboard-nav-button">
             <i className="fas fa-pencil-alt" />
             Blog
@@ -46,7 +56,7 @@ export default function Dashboard() {
          <i className="fab fa-github" />
          </div>
         </div>
-        <div className="container-main dashboard-shadow">
+        <div className="grid-container-dashboard-main dashboard-shadow">
             <div className="top-wrapper">
             <button className="user-info shadow">
             {
@@ -54,6 +64,8 @@ export default function Dashboard() {
             }
             </button>
             </div>
+           <div><button onClick={() => getPosts()}>Get Posts</button></div>
+
         </div>
         </div>
     )    

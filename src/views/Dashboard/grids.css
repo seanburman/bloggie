@@ -1,3 +1,27 @@
+@media screen and (max-width: 60em) {
+    .grid-container-dashboard {
+        grid-template-columns: 1fr!important;
+        grid-template-rows: auto 1fr!important;
+    }
+    .grid-container-dashboard > .grid-container-nav {
+        display: flex;
+        flex-direction: column;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0 0 12px 12px;
+        padding: 0.5em 0;
+        height: auto;
+    }
+    .grid-container-dashboard > .grid-container-dashboard-main {
+        grid-column: 1/2;
+        margin-top: 3.75em;
+    }
+}
+
 html > body {
     background-color: #e9f4ff;
 }
@@ -11,18 +35,20 @@ html > body {
 
 .grid-container-nav {
     position: relative;
+    z-index: 1;
+    outline: none;
     display: grid;
     grid-template-rows: 4em 1fr 4em;
     top: 3em;
     height: calc(100% - 3em);
     border-radius: 12px;
     background: rgb(255,63,70);
-background: linear-gradient(180deg, rgba(255,63,70,1) 0%, rgba(255,63,70,0.85) 100%);
+    background: linear-gradient(180deg, rgba(255,63,70,1) 0%, rgba(255,63,70,0.85) 100%);
     grid-column: 2/4;
     grid-row: 2/3;
 }
 
-.container-main {
+.grid-container-dashboard-main {
     display: grid;
     grid-template-columns: 7em 1fr;
     grid-template-rows: auto 1fr 2em;

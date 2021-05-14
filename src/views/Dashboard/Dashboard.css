@@ -1,3 +1,38 @@
+@media screen and (max-width: 60em) {
+    .grid-container-dashboard > .nav-drawer-open {
+        height: 22em;
+        transition: 500ms;
+    }
+    .grid-container-dashboard >.nav-drawer-closed {
+        height: 2.5em;
+        transition: 500ms;
+    }
+    .nav-drawer-open > .dashboard-nav-button-wrapper {
+        height: 100%;
+        overflow: hidden;
+        transition: 500ms;
+        font-size: 1em;
+    }
+    .nav-drawer-open > .dashboard-nav-button-wrapper > button {
+        font-size: 1em;
+    }
+    .nav-drawer-closed > .dashboard-nav-button-wrapper {
+        height: 0%;
+        overflow: hidden;
+        transition: 500ms;
+    }
+    .nav-drawer-open > .social-media-wrapper {
+        height: 1.75em;
+        overflow: hidden;
+        transition: 500ms;
+    }
+    .nav-drawer-closed > .social-media-wrapper {
+        height: 0;
+        overflow: hidden;
+        transition: 500ms;
+    }
+}
+
 .dashboard-shadow {
     box-shadow:
   0 -5px 5.9px rgba(0, 0, 0, 0.035),
