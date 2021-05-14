@@ -9,6 +9,7 @@ import { getPosts } from '../../redux/blog/blogHelpers'
 export default function Dashboard() {
     const [openNav, setOpenNav] = useState(false)
     const navState = openNav ? "open" : "closed"
+    const rotateToggleButton = openNav ? " rotate180 " : "rotate0 "
 
     const user = firebase.auth().currentUser
 
@@ -20,9 +21,11 @@ export default function Dashboard() {
                 "grid-container-nav dashboard-shadow nav-drawer-open nav-drawer-" + navState
             } 
             tabIndex={-1}>
-         <img src="/img/logo-white.png" alt="Bloggie" className="dashboard-logo"
-         onClick={() => setOpenNav(!openNav)}
-         />
+        <div className="dashboard-logo-toggle-wrapper" onClick={() => setOpenNav(!openNav)}>
+        <img src="/img/logo-white.png" alt="Bloggie" className="dashboard-logo"/>
+         <i className={"fas fa-arrow-circle-down nav-toggle-arrow " + rotateToggleButton} />
+        </div>
+         
          <div className={"dashboard-nav-button-wrapper"}>
             <button className="dashboard-nav-button">
             <i className="fas fa-pencil-alt" />

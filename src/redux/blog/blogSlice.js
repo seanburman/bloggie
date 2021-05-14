@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 export const fetchPosts = createAsyncThunk(
     'blog/fetchPosts',
     async() => {
-        return fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-04-14&sortBy=publishedAt&apiKey=3ce6edba821c4d5abf97ea4982ab6680`)
+        return fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=3ce6edba821c4d5abf97ea4982ab6680`)
         .then(res => res.json())
     }
 )

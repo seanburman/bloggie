@@ -19,3 +19,13 @@
     animation-duration: 1s;
     animation-delay: 500ms;
 }
+
+.rotate180 {
+    transform: rotate(180deg);
+    transition: 500ms;
+}
+
+.rotate0 {
+    transform: rotate(0deg);
+    transition: 500ms;
+}

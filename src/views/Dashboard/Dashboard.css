@@ -7,6 +7,9 @@
         height: 2.5em;
         transition: 500ms;
     }
+    .grid-container-nav > .dashboard-logo-toggle-wrapper > i {
+        visibility: visible;
+    }
     .nav-drawer-open > .dashboard-nav-button-wrapper {
         height: 100%;
         overflow: hidden;
@@ -41,10 +44,27 @@
 ;
 }
 
+.dashboard-logo-toggle-wrapper {
+    display: flex;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-toggle-arrow {
+    visibility: hidden;
+}
+
 .dashboard-logo {
     height: 2.5em;
-    align-self: center;
-    justify-self: center;
+}
+
+.nav-toggle-arrow {
+    position: absolute;
+    right: 1em;
+    font-size: 1.5em;
+    color: white;
 }
 
 .dashboard-nav-button-wrapper {
