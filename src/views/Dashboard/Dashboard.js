@@ -67,7 +67,10 @@ export default function Dashboard() {
             }
             </button>
             </div>
-           <div className="grid-container-dashboard-blog-wrapper">
+           <div className="grid-container-dashboard-content-wrapper">
+        {/* TO DO
+            THIS IS THE MAIN ROUTING POINT FOR DASHBOARD VIEWS
+        */}
            <Blog />
            </div>
 
