@@ -3,15 +3,14 @@ import 'firebase/storage'
 import 'firebase/analytics'
 import 'firebase/auth'
 import 'firebase/firestore'
-import env from 'react-dotenv'
 
-const APIKEY = env.APIKEY
-const AUTHDOMAIN = env.AUTHDOMAIN
-const PROJECTID = env.PROJECTID
-const STORAGEBUCKET = env.STORAGEBUCKET
-const MESSAGINGSENDERID = env.MESSAGINGSENDERID
-const APPID = env.APPID
-const MEASUREMENTID = env.MEASUREMENTID
+const APIKEY = process.env.REACT_APP_APIKEY
+const AUTHDOMAIN = process.env.REACT_APP_AUTHDOMAIN
+const PROJECTID = process.env.REACT_APP_PROJECTID
+const STORAGEBUCKET = process.env.REACT_APP_STORAGEBUCKET
+const MESSAGINGSENDERID = process.env.REACT_APP_MESSAGINGSENDERID
+const APPID = process.env.REACT_APP_APPID
+const MEASUREMENTID = process.env.REACT_APP_MEASUREMENTID
 
 
 const firebaseConfig = {

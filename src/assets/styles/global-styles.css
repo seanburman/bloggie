@@ -14,11 +14,24 @@
     transform: translateY(-5px);
     transition: 250ms;
 }
+
+.icon-button {
+    border: 0px;
+    background-color: transparent;
+    transition: 250ms;
+}
+
+.icon-button:hover {
+    opacity: 0.7;
+    transition: 250ms;
+}
+
 .hover-bounce {
     transition: 250ms;
 }
 
 .hover-bounce:hover {
+    cursor: pointer;
     transform: translateY(-5px);
     transition: 250ms;
 }

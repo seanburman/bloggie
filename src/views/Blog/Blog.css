@@ -2,6 +2,9 @@
     .grid-container-blog-intro > .blog-intro-image-wrapper {
         margin-bottom: 1em;
     }
+    .grid-container-blog-intro > .blog-intro-info {
+        padding: 0;
+    }
 }
 
 p.blog-title {
@@ -19,8 +22,12 @@ p.blog-title {
 }
 
 .blog-intro-image {
-    max-height: 100%;
+    max-width: 100%;
     border-radius: 12px;
+}
+
+.blog-intro-info {
+    padding: 0 1em;
 }
 
 .blog-post-preview {

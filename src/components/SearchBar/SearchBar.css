@@ -1,0 +1,29 @@
+.search-bar-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 2em;
+    background-color: white;
+    padding: 0.25em 2em;
+    border-radius: 1.25em;
+}
+
+.search-bar {
+    border-style: none;
+    outline: none;
+    height: 100%;
+    width: 80%;
+    font-size: 1em;
+}
+
+.icon-wrapper {
+    display: flex;
+    width: 20%;
+    justify-content: flex-end;
+}

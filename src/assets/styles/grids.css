@@ -1,4 +1,4 @@
-@media screen and (max-width: 55em) {
+@media screen and (max-width: 60em) {
     .container-app {
         align-items: unset!important;
         padding: 0;
@@ -34,6 +34,11 @@
     }
     .grid-container-content > .content-items:nth-child(2) {
         align-self: unset;
+    }
+
+    .grid-container-view {
+        grid-template-columns: 1fr!important;
+        padding: 0 1em;
     }
 }
 
@@ -121,4 +126,14 @@ button.login-signup {
 }
 .content-items:nth-child(2) {
     align-self: end;
+}
+
+.grid-container-view {
+    display: grid;
+    position: relative;
+    height: auto;
+    background-color: transparent;
+    grid-template-columns: 1fr 2em;
+    grid-template-rows: auto auto;
+    gap: 0;
 }

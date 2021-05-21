@@ -3,7 +3,7 @@
         grid-template-columns: 1fr!important;
         padding: 0 1em;
     }
-    .grid-container-blog > .grid-container-blog-posts {
+    .grid-container-view > .grid-container-blog-posts {
         grid-template-columns: auto auto;
         grid-column: 1/3;
     }
@@ -12,12 +12,6 @@
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
     }
-}
-
-.grid-container-blog {
-    display: grid;
-    grid-template-columns: 1fr 2em;
-    grid-template-rows: auto 1fr;
 }
 
 .grid-container-blog-intro {

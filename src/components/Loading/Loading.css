@@ -1,0 +1,18 @@
+@keyframes spin {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+.loading-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 2em 0;
+}
+
+.loading-wrapper > i {
+    font-size: 2em;
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}

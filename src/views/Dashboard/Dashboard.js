@@ -1,17 +1,24 @@
-import './grids.css'
-import './Dashboard.css'
 import firebase from '../../firebase/index'
 import SignIn from '../../firebase/Authentication'
 import { logOut } from '../../redux/user/userHelpers'
 import { useState } from 'react'
 import Blog from '../Blog/Blogs'
+import Images from '../Images/Images'
+import './grids.css'
+import './Dashboard.css'
 
 export default function Dashboard() {
     const [openNav, setOpenNav] = useState(false)
+    const [ view, setView ] = useState('Blog')
     const navState = openNav ? "open" : "closed"
     const rotateToggleButton = openNav ? " rotate180 " : "rotate0 "
 
     const user = firebase.auth().currentUser
+
+    const changeView = (name) => {
+        setView(name)
+        setOpenNav(false)
+    }
 
     if(user) {
     return (
@@ -27,12 +34,12 @@ export default function Dashboard() {
         </div>
          
          <div className={"dashboard-nav-button-wrapper"}>
-            <button className="dashboard-nav-button">
+            <button className="dashboard-nav-button" onClick={() => changeView('Blog')}>
             <i className="fas fa-pencil-alt" />
             Blog
             </button>
 
-            <button className="dashboard-nav-button">
+            <button className="dashboard-nav-button" onClick={() => changeView('Images')}>
             <i className="fas fa-image" />
             Images
             </button>
@@ -68,10 +75,13 @@ export default function Dashboard() {
             </button>
             </div>
            <div className="grid-container-dashboard-content-wrapper">
-        {/* TO DO
-            THIS IS THE MAIN ROUTING POINT FOR DASHBOARD VIEWS
-        */}
-           <Blog />
+            {
+                {
+                    'Blog': <Blog uid={user.uid} edit/>,
+                    'Images': <Images />
+                }[view]
+            }
+           
            </div>
 
         </div>
