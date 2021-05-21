@@ -192,8 +192,9 @@ export default function Images() {
                 
             </div>
             {
-                pending ? 
+                pending === true ? 
                 <div className="loading-spinner-wrapper">
+                {pending}
                 <LoadingSpinner />
                 </div> 
                 :<PexelsImages />
