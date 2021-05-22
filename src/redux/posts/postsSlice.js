@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 export const fetchPosts = createAsyncThunk(
     'posts/fetchPosts',
     async(uid) => {
-        return fetch(`http://localhost:5000/api/posts/${uid}`)
+        return fetch(`https://secret-castle-93466.herokuapp.com/api/posts/${uid}`)
         .then(res => res.json())
     }
 )
@@ -11,7 +11,7 @@ export const fetchPosts = createAsyncThunk(
 export const removePost = createAsyncThunk(
     'posts/removePost',
     async(id) => {
-        return fetch(`http://localhost:5000/api/posts/delete-post/${id}`, 
+        return fetch(`https://secret-castle-93466.herokuapp.com/api/posts/delete-post/${id}`, 
         { method: 'DELETE', headers:  { 'Content-Type': 'application/json' }}
         )
         .then(res => res.json())

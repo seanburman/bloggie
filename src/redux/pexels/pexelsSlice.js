@@ -1,9 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-//import { createClient } from 'pexels'
 
 const APIKEY = process.env.REACT_APP_PEXELS_API_KEY
-
-//const client = createClient(APIKEY)
 
 export const fetchPexels = createAsyncThunk(
     'pexels/fetchPexels',
@@ -14,12 +11,6 @@ export const fetchPexels = createAsyncThunk(
         .then(res => res.json())
     }
 )
-// export const fetchPexels = createAsyncThunk(
-//     'pexels/fetchPexels',
-//     async({query, results, page}) => {
-//         return client.photos.search({ query, per_page: results, page: page})
-//     }
-// )
 
 const initialState = {
     pexels: [],

@@ -1,0 +1,11 @@
+.upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+img {
+    max-width: 20em;
+    height: auto;
+}

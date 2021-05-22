@@ -25,7 +25,7 @@ export default function Dashboard() {
         <div className="grid-container-dashboard slide-in">
         <div 
             className={
-                "grid-container-nav dashboard-shadow nav-drawer-open nav-drawer-" + navState
+                "grid-container-nav bg-gradient dashboard-shadow nav-drawer-open nav-drawer-" + navState
             } 
             tabIndex={-1}>
         <div className="dashboard-logo-toggle-wrapper" onClick={() => setOpenNav(!openNav)}>

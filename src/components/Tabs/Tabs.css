@@ -1,0 +1,25 @@
+.tab-options-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.tab-options-item {
+    margin: 0 0.25em;
+    padding: 1em;
+    width: 10em;
+    color: white;
+    border: 0px;
+    border-radius: 12px;
+    transition: 250ms;
+}
+
+.tab-options-item:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 250ms;
+}
+
+.tab-item {
+    margin-top: 2em;
+}

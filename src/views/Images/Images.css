@@ -7,6 +7,19 @@
     width: 100%
 }
 
+.pexels-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 1/2;
+    grid-column: 1/4;
+    width: 100%;
+}
+
+.pexels-pagination > button {
+    margin: 0 1em;
+}
+
 button.prev-next {
     background-color: transparent;
     border: 0px;
@@ -120,4 +133,9 @@ a.photo-link {
 
 button.thumbtack {
     font-size: 1.25em;
+}
+
+/* EXPERIMENT */
+div.second-row {
+    grid-row: 2/3;
 }

@@ -46,8 +46,6 @@ html > body {
     top: 3em;
     height: 25em;
     border-radius: 12px;
-    background: rgb(255,63,70);
-    background: linear-gradient(180deg, rgba(255,63,70,1) 0%, rgba(255,63,70,0.85) 100%);
     grid-column: 2/4;
     grid-row: 2/3;
 }

@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 export const fetchSettings = createAsyncThunk(
     'settings/fetchSettings',
     async(uid) => {
-        return fetch(`http://localhost:5000/api/settings/${uid}`)
+        return fetch(`https://secret-castle-93466.herokuapp.com/api/settings/${uid}`)
         .then(res => res.json())
     }
 )

@@ -1,6 +1,6 @@
 @media screen and (max-width: 65em) {
-    .grid-container-view > .grid-container-pexels-images {
-        grid-template-columns: 1fr 1fr;
+    .grid-container-pexels-images {
+        grid-template-columns: 1fr 1fr!important;
     }
     .grid-container-pexels-images > .pexels-pagination {
         grid-column: 1/3;
@@ -17,15 +17,3 @@
     margin-bottom: 1em;
 }
 
-.pexels-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-row: 1/2;
-    grid-column: 1/4;
-    width: 100%;
-}
-
-.pexels-pagination > button {
-    margin: 0 1em;
-}

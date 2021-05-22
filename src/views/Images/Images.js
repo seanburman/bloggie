@@ -2,6 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import LoadingSpinner from '../../components/Loading/Loading'
 import SearchBar from '../../components/SearchBar/SearchBar'
+import Tabs from '../../components/Tabs/Tabs'
+import FileUpload from '../../firebase/FileUpload'
 import useWindowDimensions from '../../hooks/Window'
 import { deselectPhoto, getPexels, selectPhoto } from '../../redux/pexels/pexelsHelpers'
 import './grids.css'
@@ -158,7 +160,11 @@ function SelectedPhoto() {
                 </div>      
             </div>
             <div className="photo-selected-options">
-                <button className="icon-button" onClick={() => deselectPhoto()}>
+                <button 
+                className="icon-button" 
+                onClick={() => deselectPhoto()}
+                tabIndex="-2"
+                >
                     <i className="fas fa-times-circle"/>
                 </button>
             </div>
@@ -166,26 +172,15 @@ function SelectedPhoto() {
     )
 }
 
-// function ImagesTab() {
-//     //TO DO, User can select tabs to upload, use pexels, and browse their saved images.
-//     return (
-//         <div></div>
-//     )
-// }
-
-export default function Images() {
+function PexelsSearch() {
     const pexels = useSelector(state => state.pexels)
     const { pending, selectedPhoto } = pexels
-
     return (
-        <div className="grid-container-view slide-in">
-            <div className="title-wrapper">
-                <p className="view-title">Image Library</p>
-            </div>
-            <div className="searchbar-wrapper">
+        <React.Fragment>
+        <div className="searchbar-wrapper">
                 <div className="pexel-credit">
                     <p>
-                    Find images courtesy of <a href="https://pexels.com" target="blank">Pexels</a>
+                    Find images, courtesy of <a href="https://pexels.com" target="blank">Pexels.</a>
                     </p>
                 </div>
                 <SearchBar />
@@ -194,7 +189,6 @@ export default function Images() {
             {
                 pending === true ? 
                 <div className="loading-spinner-wrapper">
-                {pending}
                 <LoadingSpinner />
                 </div> 
                 :<PexelsImages />
@@ -202,6 +196,35 @@ export default function Images() {
             {
                 selectedPhoto.photo && <SelectedPhoto /> 
             }
+        </React.Fragment>
+    )
+}
+
+export default function Images() {
+    const TabItems = [
+    {
+        tab: "My Images",
+        item: "My Images"
+    },
+    {
+        tab: "Upload",
+        item: <FileUpload />
+    },
+    {
+        tab: "Pexels Images",
+        item: <PexelsSearch />
+    }  
+    ]
+
+    return (
+        <div className="grid-container-view slide-in">
+            <div className="title-wrapper">
+                <p className="view-title">Image Library</p>
+            </div>
+            <div className="second-row">
+                <Tabs tabs={TabItems}/>
+            </div>
+            
         </div>
     )
 }
