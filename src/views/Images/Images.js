@@ -12,10 +12,15 @@ import './Images.css'
 
 function ImageLibrary() {
     const { images } = useSelector(state => state.images)
+    const { uid } = useSelector(state => state.user[0])
     const { width } = useWindowDimensions()
     const arrangement = width >= 1040 ? "triple" : "double"
     var photos = []
-    console.log(images)
+    
+    useEffect(() => {
+        getImages(uid)
+    },[uid])
+
     images.forEach(image => {
         let photoCardModel = {
             src: {
