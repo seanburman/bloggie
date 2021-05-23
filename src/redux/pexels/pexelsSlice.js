@@ -14,6 +14,7 @@ export const fetchPexels = createAsyncThunk(
 
 const initialState = {
     pexels: [],
+    storedImages: [],
     selectedPhoto: [],
     query: [],
     resultsPerPage: 30,
@@ -26,6 +27,13 @@ const pexelsSlice = createSlice({
     reducers: {
         storeQuery(state, action) {
             state.query = action.payload
+        },
+        storeImageLocal(state, action) {
+            state.storedImages = [...state.storedImages, action.payload]
+        },
+        removeImageLocal(state, action) {
+            state.storedImages = state.storedImages.filter(
+                image => image.url !== action.payload.url)
         },
         select_Photo(state, action) {
             state.selectedPhoto = action.payload
@@ -46,5 +54,8 @@ const pexelsSlice = createSlice({
     }
 })
 
-export const { storeQuery, select_Photo, deselect_Photo } = pexelsSlice.actions
+export const { 
+    storeQuery, select_Photo, deselect_Photo, storeImageLocal, removeImageLocal
+} = pexelsSlice.actions
+
 export default pexelsSlice.reducer

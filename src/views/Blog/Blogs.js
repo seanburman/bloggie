@@ -5,6 +5,7 @@ import { getSettings } from "../../redux/settings/settingsHelpers"
 import './grids.css'
 import './Blog.css'
 import { useParams } from "react-router"
+import { getImages } from "../../redux/images/imagesHelpers"
 
 function BlogPost({post, edit, click}) {
 
@@ -102,6 +103,7 @@ export default function Blog({uid, edit}) {
     const [ fullPost, setFullPost ] = useState(null)
      useEffect(() => {
             getSettings(userID)
+            getImages(userID)
             getPosts(userID)
      },[userID])
 

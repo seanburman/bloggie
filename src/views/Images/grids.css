@@ -17,3 +17,7 @@
     margin-bottom: 1em;
 }
 
+.second-row {
+    grid-row: 2/3;
+}
+

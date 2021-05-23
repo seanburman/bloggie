@@ -3,7 +3,6 @@ import './grids.css'
 import './Tabs.css'
 
 export default function Tabs({tabs}) {
-    console.log(tabs)
     const [ item, setItem ] = useState(tabs[0].item)
 
     return (
@@ -14,7 +13,8 @@ export default function Tabs({tabs}) {
                     tabs.map((tab, i) => (
                             <button 
                             key={i} 
-                            className="tab-options-item bg-gradient" 
+                            className="round-button bg-gradient"
+                            disabled={item === tab.item}
                             onClick={() => setItem(tab.item)}>
                             {tab.tab}
                             </button>

@@ -4,6 +4,7 @@
     align-self: center;
 }
 
+/* Buttons */
 .mdl-button--raised.mdl-button--colored {
     background: rgb(255,63,70)!important;
     background: linear-gradient(180deg, rgba(255,63,70,1) 0%, rgba(255,63,70,0.85) 100%)!important;
@@ -26,6 +27,42 @@
     transition: 250ms;
 }
 
+.round-button {
+    margin: 0 0.25em;
+    padding: 1em;
+    width: 10em;
+    color: white;
+    border: 0px;
+    border-radius: 12px;
+    transition: 250ms;
+}
+
+.round-button-white {
+    margin: 0 0.25em;
+    background-color: white;
+    border: 0px;
+    border-radius: 12px;
+    padding: 1em;
+    width: 10em;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 250ms;
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: unset;
+}
+
+button:disabled:hover {
+    opacity: 0.7;
+    cursor: unset;
+}
+
+/* Effects */
 .hover-bounce {
     transition: 250ms;
 }
@@ -46,11 +83,6 @@
   0 7px 80px rgba(0, 0, 0, 0.07)
 ;
 }
-
-/* .bg-gradient {
-    background: rgb(0,74,255);
-background: linear-gradient(207deg, rgba(0,74,255,0.5690651260504201) 6%, rgba(63,34,195,0.5690651260504201) 33%, rgba(199,44,255,0.4822303921568627) 62%, rgba(255,105,105,0.9192051820728291) 93%);
-} */
 
 .bg-gradient {
     background: rgb(255,63,70);
