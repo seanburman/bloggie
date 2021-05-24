@@ -28,6 +28,29 @@ export const createPost = createAsyncThunk(
         })
         .then(res => res.json())
     }
+)
+
+export const updateOnePost = createAsyncThunk(
+    'posts/updateOnePost',
+    async(post) => {
+        console.log(post)
+        return fetch(`https://secret-castle-93466.herokuapp.com/api/posts/update-post/${post._id}`, 
+        { 
+            method: 'PUT', 
+            headers:  { 'Content-Type': 'application/json' },
+            body: 
+                JSON.stringify({
+                uid: post.uid,
+                displayname: post.parameters.displayname,
+                previewimage: post.parameters.previewimage,
+                mainimage: post.parameters.mainimage,
+                title: post.parameters.title,
+                content: post.parameters.content,
+                date: post.parameters.date
+            })
+        })
+        .then(res => res.json())
+    }
 ) 
 
 export const removePost = createAsyncThunk(
@@ -66,6 +89,17 @@ const postsSlice = createSlice({
         },
         [createPost.fulfilled]: (state, action) => {
             state.posts = [...state.posts, action.payload]
+            state.pending = false
+        }, 
+        [updateOnePost.pending]: (state, action) => {
+            state.pending = true
+        },
+        [updateOnePost.fulfilled]: (state, action) => {
+            let updatedPosts = state.posts.filter(
+                post => post._id !== action.payload._id
+            )
+            updatedPosts = [...updatedPosts, action.payload]
+            state.posts = updatedPosts
             state.pending = false
         }, 
         [removePost.pending]: (state, action) => {

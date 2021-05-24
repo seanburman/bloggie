@@ -8,6 +8,12 @@ import { useParams } from "react-router"
 import PostForm from "./PostForm/PostForm"
 
 function BlogPost({post, edit, click}) {
+    const { uid } = useSelector(state => state.user[0])
+    const [ editPost, setEditPost ] = useState(false)
+
+    useEffect(() => {
+        getPosts(uid)
+    },[uid, editPost])
 
     return (
      <div className="blog-post-full slide-in">
@@ -22,11 +28,15 @@ function BlogPost({post, edit, click}) {
                     logged into the dashboard */}
                 {   edit &&
                     <React.Fragment>
-                    <button 
-                        onClick={() => click()} 
-                        className="blog-post-button shadow hover-bounce">
-                        Edit
-                    </button>
+                    {
+                    !editPost &&
+                        <button 
+                            onClick={() => setEditPost(true)} 
+                            className="blog-post-button shadow hover-bounce">
+                            Edit
+                        </button>   
+                    }
+                    
                     <button 
                         onClick={() => {
                             deletePost(post._id)
@@ -39,12 +49,19 @@ function BlogPost({post, edit, click}) {
                     </React.Fragment>
                 }
             </div>
+        {
+            editPost
+            ? <PostForm editPost editPostData={post} 
+            callback={() => {setEditPost(false); click()}} />
+            : <React.Fragment>
+                <div className="blog-post-full-image-wrapper">
+                <img src={post.mainimage} alt={post.title} className="blog-post-full-image"/>
+                </div>
+                <h1 className="blog-post-full-title blog-post-full-text">{post.title}</h1>
+                <p className="blog-post-full-content blog-post-full-text">{post.content}</p>
+             </React.Fragment>
+        } 
         
-        <h1>{post.title}</h1>
-        <div className="blog-post-full-image-wrapper">
-            <img src={post.mainimage} alt={post.title} className="blog-post-full-image"/>
-        </div>
-        <p>{post.content}</p>
     </div>   
     )
     
@@ -132,9 +149,9 @@ export default function Blog({uid, edit}) {
         </div>
         <div className="grid-container-blog-posts">
             {
-                edit &&
+                edit && !fullPost ?
                 <div className="new-post-button-wrapper">
-                    <button 
+                    <button
                     className="blog-post-button new-post-button shadow hover-bounce"
                     onClick={() => setNewPost(!newPost)}
                     >
@@ -144,8 +161,7 @@ export default function Blog({uid, edit}) {
                         : "New Post" 
                     }
                     </button>
-                </div>
-                
+                </div> : null
             }
         {
         /* If a full post is not being viewed, then all posts are being viewed,
@@ -157,7 +173,7 @@ export default function Blog({uid, edit}) {
         {
             //If a post is selected, display full post
             newPost
-            ? <PostForm />
+            ? <PostForm callback={() => setNewPost(false)}/>
             : fullPost 
             ? <BlogPost post={fullPost} edit={edit} click={() => setFullPost(null)}/> 
             //If no post selected, display all posts

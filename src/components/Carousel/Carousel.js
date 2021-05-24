@@ -3,16 +3,28 @@ import { useSelector } from "react-redux";
 import { getImages } from "../../redux/images/imagesHelpers";
 import './Carousel.css'
 
-export default function Carousel({callback=()=>{}}) {
-    const { images } = useSelector(state => state.images)
+export default function Carousel({editPost, editPostData, callback=()=>{}}) {
+    const { images, photoUrls } = useSelector(state => state.images)
     const { uid } = useSelector(state => state.user[0])
+    const [serialPosition, setSerialPosition] = useState(0)
     const start = ((images.length -1 ) * 3) + 0.25
     const step = 6
-    const [serialPosition, setSerialPosition] = useState(0)
     const end = start - ((images.length * step) - step)
     const [ position, setPosition ] = useState(start)
 
     useEffect(() => {
+        if(editPost) {
+            let postImagePosition = 
+                editPostData 
+                ? photoUrls.indexOf(editPostData.previewimage)
+                : 0
+            setSerialPosition(postImagePosition)
+            setPosition(start - (postImagePosition * step))
+        }
+    },[editPost, editPostData, photoUrls, start])
+
+    useEffect(() => {
+        //Callback sends image data back to Post form
         callback(images[serialPosition])
     },[serialPosition, callback, images])
 
@@ -27,6 +39,11 @@ export default function Carousel({callback=()=>{}}) {
     const pageRight = () => {
         setSerialPosition(serialPosition + 1)
         setPosition(position - step)
+    }
+
+    const selectImage = (i) => {
+        setPosition(start - (i * step))
+        setSerialPosition(i)
     }
 
     const slideImage = {
@@ -49,7 +66,7 @@ export default function Carousel({callback=()=>{}}) {
                             <img 
                             key={i}
                             src={image.details.mainimage}
-                            alt={image.uploadSource}
+                            alt={"Photo by " + image.uploadSource}
                             className="carousel-image-preview fade-in shadow"
                             /> 
                         </div>
@@ -59,7 +76,7 @@ export default function Carousel({callback=()=>{}}) {
 
             <div className="carousel-wrapper">
                 <div 
-                className="carousel-image-wrapper"
+                className="carousel-image-wrapper shadow"
                 >
                 {
                     images.map((image, i) => (
@@ -67,10 +84,11 @@ export default function Carousel({callback=()=>{}}) {
                             <img
                             key={i} 
                             src={image.details.previewimage}
-                            className="carousel-image carousel-image-left shadow" 
-                            alt={image.uploadSource} 
+                            className="carousel-image carousel-image-left shadow hover-bounce" 
+                            alt={image.uploadSource}
+                            onClick={() => selectImage(i)}
                             /> 
-
+                        
                         </div>
                         
                     )) 

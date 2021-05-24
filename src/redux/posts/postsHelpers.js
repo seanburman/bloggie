@@ -1,13 +1,23 @@
 import store from '../store'
-import { createPost, fetchPosts, removePost } from './postsSlice'
+import { createPost, fetchPosts, removePost, updateOnePost } from './postsSlice'
 
 export function getPosts(uid) {
     store.dispatch(fetchPosts(uid))
 }
+
 export function savePost(post) {
     console.log(post)
     store.dispatch(createPost(post))
 }
+
+export function updatePost(post, _id) {
+    let parametersWithID = {
+        parameters: post,
+        _id: _id
+    }
+    store.dispatch(updateOnePost(parametersWithID))
+}
+
 export function deletePost(id) {
     store.dispatch(removePost(id))
 }
