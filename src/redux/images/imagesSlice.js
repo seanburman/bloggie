@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 export const fetchImages = createAsyncThunk(
     'posts/fetchImages',
     async(uid) => {
-        console.log(uid)
         return fetch(`https://secret-castle-93466.herokuapp.com/api/images/${uid}`)
         .then(res => res.json())
     }
@@ -12,7 +11,6 @@ export const fetchImages = createAsyncThunk(
 export const postImage = createAsyncThunk(
     'posts/postImage',
     async(image) => {
-        console.log(image)
         return fetch(`https://secret-castle-93466.herokuapp.com/api/images/save-image/`, 
         { 
             method: 'POST', 
@@ -31,7 +29,6 @@ export const postImage = createAsyncThunk(
 export const removeImage = createAsyncThunk(
     'posts/removeImage',
     async(image) => {
-        console.log(image)
         return fetch(
             `https://secret-castle-93466.herokuapp.com/api/images/delete-image/`, 
         { 
@@ -45,18 +42,7 @@ export const removeImage = createAsyncThunk(
         })
         .then(res => res.json())
     }
-) 
-// export const removeImage = createAsyncThunk(
-//     'posts/removeImage',
-//     async(uid, {url}) => {
-//         console.log(url)
-//         return fetch(
-//             `https://secret-castle-93466.herokuapp.com/api/images/delete-image/${uid}/${url}`, 
-//         { method: 'DELETE', headers:  { 'Content-Type': 'application/json' }}
-//         )
-//         .then(res => res.json())
-//     }
-// ) 
+)
 
 const initialState = {
     images: [],

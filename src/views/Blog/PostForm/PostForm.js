@@ -22,7 +22,6 @@ export default function PostForm({editPost, editPostData, callback}){
 
     const date = dateMaker()
 
-    console.log(editPostData)
     const postTemplate = {
         uid: uid,
         title: title,

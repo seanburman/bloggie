@@ -1,0 +1,16 @@
+@media screen and (max-width: 60em) {
+    .grid-container-blog-solo {
+        grid-template-columns: 1fr!important;
+    }
+}
+
+.grid-container-blog-solo {
+    display: grid;
+    grid-template-columns: 2em 1fr;
+    padding: 2em 0;
+    background-color: white;
+}
+
+.blog-container {
+    grid-column: 2/3;
+}

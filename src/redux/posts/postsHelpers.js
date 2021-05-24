@@ -6,7 +6,6 @@ export function getPosts(uid) {
 }
 
 export function savePost(post) {
-    console.log(post)
     store.dispatch(createPost(post))
 }
 

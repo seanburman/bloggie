@@ -33,7 +33,6 @@ export const createPost = createAsyncThunk(
 export const updateOnePost = createAsyncThunk(
     'posts/updateOnePost',
     async(post) => {
-        console.log(post)
         return fetch(`https://secret-castle-93466.herokuapp.com/api/posts/update-post/${post._id}`, 
         { 
             method: 'PUT', 

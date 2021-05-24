@@ -7,13 +7,14 @@ import './Blog.css'
 import { useParams } from "react-router"
 import PostForm from "./PostForm/PostForm"
 
-function BlogPost({post, edit, click}) {
-    const { uid } = useSelector(state => state.user[0])
+function BlogPost({post, edit, user, click}) {
+    const { uid } = useSelector(state => state.user[0]) || user.uid
     const [ editPost, setEditPost ] = useState(false)
 
     useEffect(() => {
         getPosts(uid)
     },[uid, editPost])
+
 
     return (
      <div className="blog-post-full slide-in">
@@ -111,6 +112,9 @@ function BlogPostPreview({post, click}) {
 export default function Blog({uid, edit}) {
     const params = useParams()
     const userID = uid ? uid : params.id
+    const user = userID ? {
+        uid: userID
+    } : null
     const [posts, setPosts] = useState([])
     const [settings, setSettings] = useState([])
     const postsState = useSelector(state => state.posts.posts)
@@ -122,7 +126,7 @@ export default function Blog({uid, edit}) {
      useEffect(() => {
             getSettings(userID)
             getPosts(userID)
-     },[userID])
+     },[userID, fullPost])
 
     useEffect(() => {
         setPosts(postsState)
@@ -174,6 +178,8 @@ export default function Blog({uid, edit}) {
             //If a post is selected, display full post
             newPost
             ? <PostForm callback={() => setNewPost(false)}/>
+            : fullPost && !edit
+            ? <BlogPost post={fullPost} user={user} click={() => setFullPost(null)}/>
             : fullPost 
             ? <BlogPost post={fullPost} edit={edit} click={() => setFullPost(null)}/> 
             //If no post selected, display all posts

@@ -13,18 +13,13 @@ export default function FileUpload() {
     const { uid, displayName } = useSelector(state => state.user[0])
     
     const allowedImageFormats = [".jpg", "jpeg", ".gif", ".png"]
-    console.log(imageName)
+
     const imageFormatIsValid = 
         imageName !== null 
         ? allowedImageFormats.includes(
             imageName.slice(-4, (imageName.length)) || imageName.slice(-5, (imageName.length)))
         : null
 
-
-    if(imageName !== null ) {
-        console.log(imageName.slice(-4, (imageName.length)))
-    }
-    
     const saveImageDetails = (url) => {
         let imageSaveTemplate = {
                 uid: uid,

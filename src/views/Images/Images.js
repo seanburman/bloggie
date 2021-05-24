@@ -233,14 +233,12 @@ export function PhotoCard({photo}) {
             saveImage(imageSaveTemplate)
             setImageTemplate(imageSaveTemplate)
         } else {
-            console.log("Else" + imageIsStored)
             deleteImage(uid, src.medium)
         }
         
     }
 
     const pressEnterSelectPhoto = (e) => {
-        console.log(e)
         if(e.keyCode === 0)
         selectPhoto({photo})
     }
@@ -280,7 +278,6 @@ export function PhotoCard({photo}) {
 function SelectedPhoto() {
     const photo = useSelector(state => state.pexels.selectedPhoto)
     const { src } = photo.photo.photo
-    console.log(src)
 
     return (
         <div className="photo-selected-backdrop">
