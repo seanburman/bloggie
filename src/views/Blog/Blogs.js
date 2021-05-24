@@ -5,6 +5,7 @@ import { getSettings } from "../../redux/settings/settingsHelpers"
 import './grids.css'
 import './Blog.css'
 import { useParams } from "react-router"
+import PostForm from "./PostForm/PostForm"
 
 function BlogPost({post, edit, click}) {
 
@@ -69,12 +70,12 @@ function BlogIntro({intro}) {
 }
 
 function BlogPostPreview({post, click}) {
-    const { title, content, previewimage } = post
+    const { title, content, previewimage, date } = post
     const titleSubString = title.substr(0, 60)
     const contentSubString = content.substr(0,100)
     const titleElipses = title.length > 60 ? "..." : null
     const contentElipses = content.length > 100 ? "..." : null
-    var date = "14 May 2020"
+
     // TO DO
     //Split strings by word count
     return (
@@ -97,9 +98,10 @@ export default function Blog({uid, edit}) {
     const [settings, setSettings] = useState([])
     const postsState = useSelector(state => state.posts.posts)
     const settingsState = useSelector(state => state.settings.settings)
-    // TO DO: While pending, need loading placeholder
     const pending = useSelector(state => state.posts.pending)
     const [ fullPost, setFullPost ] = useState(null)
+    const [ newPost, setNewPost ] = useState(null)
+
      useEffect(() => {
             getSettings(userID)
             getPosts(userID)
@@ -129,21 +131,39 @@ export default function Blog({uid, edit}) {
             }
         </div>
         <div className="grid-container-blog-posts">
-    
+            {
+                edit &&
+                <div className="new-post-button-wrapper">
+                    <button 
+                    className="blog-post-button new-post-button shadow hover-bounce"
+                    onClick={() => setNewPost(!newPost)}
+                    >
+                    {
+                        newPost
+                        ? "Back to Posts"
+                        : "New Post" 
+                    }
+                    </button>
+                </div>
+                
+            }
         {
         /* If a full post is not being viewed, then all posts are being viewed,
         which requires the intro */
-          !fullPost && settings.length > 0 &&
+          !newPost && !fullPost && settings.length > 0 &&
          <BlogIntro intro={settings[0].blogIntro}/>    
         }
 
         {
             //If a post is selected, display full post
-            fullPost ? <BlogPost post={fullPost} edit={edit} click={() => setFullPost(null)}/> :
+            newPost
+            ? <PostForm />
+            : fullPost 
+            ? <BlogPost post={fullPost} edit={edit} click={() => setFullPost(null)}/> 
             //If no post selected, display all posts
-            posts ?
-                posts.map((post, i) => (
-                    <BlogPostPreview key={i} post={post} click={() => showFullPost(post)}/>
+            : posts 
+            ? posts.map((post, i) => (
+                <BlogPostPreview key={i} post={post} click={() => showFullPost(post)}/>
                 ))
             :"No Posts to display"
         }

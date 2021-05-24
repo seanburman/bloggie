@@ -3,11 +3,32 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 export const fetchPosts = createAsyncThunk(
     'posts/fetchPosts',
     async(uid) => {
-        console.log("Fetch" + uid)
         return fetch(`https://secret-castle-93466.herokuapp.com/api/posts/${uid}`)
         .then(res => res.json())
     }
 )
+
+export const createPost = createAsyncThunk(
+    'posts/createPost',
+    async(post) => {
+        return fetch(`https://secret-castle-93466.herokuapp.com/api/posts/create-post/`, 
+        { 
+            method: 'POST', 
+            headers:  { 'Content-Type': 'application/json' },
+            body: 
+                JSON.stringify({
+                uid: post.uid,
+                displayname: post.displayname,
+                previewimage: post.previewimage,
+                mainimage: post.mainimage,
+                title: post.title,
+                content: post.content,
+                date: post.date
+            })
+        })
+        .then(res => res.json())
+    }
+) 
 
 export const removePost = createAsyncThunk(
     'posts/removePost',
@@ -38,6 +59,13 @@ const postsSlice = createSlice({
         },
         [fetchPosts.fulfilled]: (state, action) => {
             state.posts = action.payload
+            state.pending = false
+        }, 
+        [createPost.pending]: (state, action) => {
+            state.pending = true
+        },
+        [createPost.fulfilled]: (state, action) => {
+            state.posts = [...state.posts, action.payload]
             state.pending = false
         }, 
         [removePost.pending]: (state, action) => {

@@ -52,7 +52,10 @@ function ImageLibrary() {
         
         <div className="grid-container-pexels-images slide-in">
         {
-            images.length === 0 && "No images"
+            images.length === 0 && 
+            <div className="flex-center responsive-inner-content center-text">
+            <p>No images! Upload or search for an image from Pexels to add to your collection :)</p>
+            </div>
         }
         {   photos &&
            <React.Fragment>          
